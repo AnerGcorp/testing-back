@@ -9,8 +9,8 @@ class MenuCategory(models.Model):
         'verbose_name': "Verbose name"
     }
     class Meta:
-        verbose_name = LABELS['menu_category']
-        verbose_name_plural = LABELS['menu_categories']
+        verbose_name = "Menu category"
+        verbose_name_plural = "Menu categories"
 
     name = models.CharField(LABELS['name'], max_length=255, blank=True, null=False)
     verbose_name = models.CharField(LABELS['verbose_name'], max_length=255, blank=True, null=False)
@@ -31,13 +31,13 @@ class Menu(models.Model):
     }
 
     class Meta:
-        verbose_name = LABELS['menu_item']
-        verbose_name_plural = LABELS['menu_items']
+        verbose_name = "Menu item"
+        verbose_name_plural = "Menu items"
 
     name = models.CharField(LABELS['name'], max_length=255, blank=True, null=False)
 
     category = models.ForeignKey(
-        TreeMenuCategory,
+        MenuCategory,
         verbose_name=LABELS['category'],
         on_delete=models.CASCADE,
         blank=False,
